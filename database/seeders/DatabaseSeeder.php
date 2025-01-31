@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@gmail.com',
             'password' => '123123',
             'gold_balance' => 0,
-            'cash_balance' => 100000000,
+            'fiat_balance' => 100000000,
         ]);
 
         User::create([
@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'test2@gmail.com',
             'password' => '123123',
             'gold_balance' => 0,
-            'cash_balance' => 100000000,
+            'fiat_balance' => 100000000,
         ]);
 
         User::create([
@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'test4@gmail.com',
             'password' => '123123',
             'gold_balance' => 8.517,
-            'cash_balance' => 0,
+            'fiat_balance' => 0,
         ]);
     }
 }

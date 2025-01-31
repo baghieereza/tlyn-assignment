@@ -7,14 +7,13 @@ This project is a **Dockerized Laravel-based API** for buying and selling gold b
 - **Automated order matching** for buy/sell trades
 - **Tiered transaction fees** based on trade weight
 - **User balance management** for gold and fiat currency
-- **RESTFULL API with Laravel & MySQL**
+- **RESTful API with Laravel & MySQL**
 - **Dockerized deployment**
 
 ## Setup Instructions
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/baghieereza/tlyn-assignment
 cd tlyn-assignment
 ```
 
@@ -23,17 +22,27 @@ cd tlyn-assignment
 docker-compose up --build -d
 ```
 
-### 3. Access Laravel App Container
+### 3. Copy Environment File
+```sh
+cp .env.example .env
+```
+
+### 4. Access Laravel App Container
 ```sh
 docker exec -it tlyn-app bash
 ```
 
-### 4. Run Composer Dump-Autoload
+### 5. Install Composer Dependencies
+```sh
+composer install
+```
+
+### 6. Run Composer Dump-Autoload
 ```sh
 composer dump-autoload
 ```
 
-### 5. Run Migrations & Seeders
+### 7. Run Migrations & Seeders
 ```sh
 php artisan migrate --seed
 ```
@@ -61,4 +70,3 @@ docker-compose down
 ```
 
 🚀 Your Laravel API is now set up and ready to handle gold trading transactions!
-
