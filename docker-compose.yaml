@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tlyn-app
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:latest
+    container_name: tlyn-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+
+  db:
+    image: mysql:8.0
+    container_name: tlyn-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tlyn
+      MYSQL_USER: tlyn_user
+      MYSQL_PASSWORD: tlyn_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
